@@ -40,7 +40,6 @@ for line in Lines:
     elif section == 7 and line[0].isdigit():
         h_l.append([int(char) for char in line.split() if char.isdigit()])
 
-seeds = []
 index = 0
 check = 0
 while index < len(seed_range):
