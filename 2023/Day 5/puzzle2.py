@@ -20,6 +20,7 @@ w_l = []
 l_t = []
 t_h = []
 h_l = []
+list = []
 for line in Lines:
     if line == '\n':
        section += 1
@@ -43,7 +44,6 @@ for line in Lines:
 index = 0
 check = 0
 while index < len(seed_range):
-    print(index)
     i = 0
     while index + 1 < len(seed_range) and i < seed_range[index + 1]:
         seed = check_next(seed_range[index] + i, s_s)
