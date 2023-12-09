@@ -11,7 +11,7 @@ def parse_input(filename):
         if index == 0:
             instruct = new_line
         else:
-            map.append(re.findall(r'\b\w+\b', line)) if line[0].isalnum() else None
+            map.append(re.findall_list(r'\b\w+\b', line)) if line[0].isalnum() else None
     replace_num(map)
     return instruct, map
 
