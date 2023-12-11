@@ -32,7 +32,7 @@ def check_x(string):
             return False
     return True
 
-def checK_expand(map):
+def check_expand(map):
     exp_x = []
     exp_y = []
     for x, col in enumerate(map[0]):
@@ -42,22 +42,6 @@ def checK_expand(map):
         if check_x(row):
             exp_y.append(y)
     return exp_x, exp_y
-
-def expand_map(map):
-    exp = 1
-
-    exp_x, exp_y = checK_expand(map)
-    string = len(map[0]) * '.'
-    to_insert = np.full((exp, map.shape[1]), '.', dtype=str)
-
-    for i, y in enumerate(exp_y):
-        map = np.insert(map, y + (i * exp), to_insert, axis = 0)
-
-    to_insert_col = np.full((exp, 1), '.', dtype=str)
-    for i, x in enumerate(exp_x):
-        map = np.insert(map, x + (i * exp), to_insert_col, axis = 1)
-
-    return map
 
 def find_galaxies(map):
     coordinates = []
@@ -69,7 +53,7 @@ def find_galaxies(map):
     return coordinates
 
 def expand_coordinates(map, coordinates, exp):
-    exp_x, exp_y = checK_expand(map)
+    exp_x, exp_y = check_expand(map)
 
     for i, c in enumerate(coordinates):
         count = 0
@@ -98,7 +82,7 @@ def calculate_shortest_paths(map, exp):
     return (sum)
 
 def main():
-    map = parse_input('input')
+    map = parse_input('../Input/day11')
     print('Part 1:', calculate_shortest_paths(map, 1))
     print('Part 2:', calculate_shortest_paths(map, 999999))
 
